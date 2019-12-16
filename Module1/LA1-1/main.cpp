@@ -2,5 +2,15 @@
 using namespace std;
 int main()
 {
+    //variables
+    int age; //signed integer
+    //cout:  output
     cout << "Hello World" << endl;
+    cout << "Wildcats " << "WSU " << "Ogden" << endl;
+
+    //cin: system/user input
+    cout << "What is your age? ";
+    cin >> age;
+    cout << "You are " << age << " Years old" << endl;
+    return 0;
 }
