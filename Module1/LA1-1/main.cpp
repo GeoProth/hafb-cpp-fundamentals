@@ -15,5 +15,7 @@ int main()
 
     //sizeof(): get the size of the variable
     cout << "Integers are: " << sizeof(int) << " Bytes." << endl;
+    cout << "Min Integer value: " << INT32_MIN << "\n"
+            "Max Integer value: " << INT32_MAX << " Bytes." << endl;
     return 0;
 }
