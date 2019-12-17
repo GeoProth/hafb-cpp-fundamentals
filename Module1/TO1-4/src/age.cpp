@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-void ByReferenceAgeIn5Years(int& age)
+void ByReferenceAgeIn5Years(int &age)
 {
     age += 5;
 }
