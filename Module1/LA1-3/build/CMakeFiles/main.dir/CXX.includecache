@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Geoffreyprothero/Desktop/c++/hafb-cpp-fundamentals/Module1/LA1-3/main.cpp
+iostream
+-
+my_functions.h
+C:/Users/Geoffreyprothero/Desktop/c++/hafb-cpp-fundamentals/Module1/LA1-3/my_functions.h
+
+C:/Users/Geoffreyprothero/Desktop/c++/hafb-cpp-fundamentals/Module1/LA1-3/my_functions.h
+
