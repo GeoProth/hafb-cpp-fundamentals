@@ -1,6 +1,7 @@
 #include <array>
 #include <iostream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ int main() {
       "Bountiful",    "Centerville",        "Clinton",       "South Weber",
       "West Point",   "Cottonwood Heights", "Murray",        "Salt Lake City",
       "South Jordan", "West Jordan",        "American Fork", "Lindon",
-      "Payson",       "Pleasant Grove",     "Spanish Fork",  "Harrisville",
+      "Payson",       "Pleasant Grove",     "Spanish Fork",  "Harrissville",
       "Ogden",        "Pleasant View",      "Riverdale",     "South Ogden"};
 
   array<string, kMaxSize> names = {
@@ -35,18 +36,66 @@ int main() {
       "Susan",  "Hal",   "Olivia", "Polly", "Roy",    "Scott"};
 
   // create a variable of type ofstream
-
+  std::ofstream commute_File_Out;
   // open the file commute.txt
+  commute_File_Out.open("../commute.csv");
+  if(commute_File_Out.fail())
+  {
+    std::cout << "Unabel to open file commute.csv to write. \nShutting down\n";
+    return 1;
+  }
 
   // write commute_minutes and commute_miles to the file commute.txt
+  for(int index = 0; index < kMaxSize; ++index)
+  {
+    std::cout << commute_minutes[index] << ", " << commute_miles[index] << endl;
+    commute_File_Out << commute_minutes[index] << ", " << commute_miles[index] << endl;
+    
+  }
 
+  commute_File_Out.close();
   // create a variable of type ofstream and open the file town.txt
 
+  std::ofstream town_out;
+
+  town_out.open("../town.csv");
+  if(town_out.fail())
+  {
+    std::cout << "Unable to open town file to write to.  \nShutting down\n";
+    return 1;
+  }
+
   // write the towns to the file town.txt
+  for(int index = 0; index < kMaxSize; ++index)
+  {
+    std::cout << towns[index] << endl;
+    town_out << towns[index] << endl;
+    
+  }
+
+  town_out.close();
 
   // create a variable of type ofstream and open the file commute_data.txt
 
-  // write commute_minutes, commute_miles, and towns to the file commute.txt
+  std::ofstream commute_data_out;
+  commute_data_out.open("../commute_data.csv");
+  if(commute_data_out.fail())
+  {
+    std::cout << "Unable to open commute data file to write to. \nShutting this shit down\n";
+    return 1;
+  }
+   // write commute_minutes, commute_miles, and towns to the file commute.txt
+   commute_data_out << "Minutes, " << "Miles, " << "miles/hr, " << "name, " << "Town" << endl;
+   for(int index = 0; index < kMaxSize; ++index)
+  {
+    std::cout << commute_minutes[index] << ", " << commute_miles[index] << ", " << (float)commute_miles[index]/(commute_minutes[index]*60) << ", " << names[index] << ", " 
+    << towns[index] << endl;
+
+    commute_data_out << commute_minutes[index] << ", " << commute_miles[index] << ", " << (float)commute_miles[index]/(commute_minutes[index]*60) << ", " << names[index] << ", " 
+    << towns[index] << endl;
+  }
+
+  commute_data_out.close();
 
   // do computations and add labeling to data before writing to file
 
