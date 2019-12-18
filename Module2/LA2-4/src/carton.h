@@ -6,6 +6,7 @@
 */
 #pragma once
 
+#include <fstream>
 //create first class
 class Carton
 {
@@ -16,7 +17,7 @@ class Carton
 
     public:
         // Static Constants
-        static const double kMaxSize;
+        //static const double kMaxSize;
         static const double kMinLength;
         static const double kMinWidth;
         static const double kMinHeight;
@@ -38,5 +39,6 @@ class Carton
         void SetMeasurements(double len, double wid, double high);
         void ShowInfo();
         double Calculate_Volume() const;
+        void WriteData(std::ostream &out) const;
 
 }; //must have a ";"

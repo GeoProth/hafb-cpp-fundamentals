@@ -2,8 +2,9 @@
 #include <array>
 #include <cstdlib>
 #include "carton.h"
+#include "carton_fileio.h"
 
-const int kMaxSize = 10;
+
 using namespace std;
 
 int main() {
@@ -23,40 +24,30 @@ int main() {
   Carton box1(24.5, 15.4, 11.6);
   box1.ShowInfo();
 
-  Carton box2(0,0,0);
-  box2.ShowInfo();
+  //Carton box2(0,0,0);
+ // box2.ShowInfo();
   // create an array of Cartons
-  array<Carton, kMaxSize> boxes;
-  // add some valid elements to the array
-  for(int index = 0; index < boxes.size(); index++)
-  {
-    boxes[index] = Carton(static_cast<double>(rand() % 30) + 1, static_cast<double>(rand() % 30) + 1, static_cast<double>(rand() % 30) + 1);
-
-  // loop through the array
-  for(auto box : boxes)
-  {
-    cout << box.ShowInfo();
-  }
+  array<Carton, kMaxArraySize> boxes;
   // print out the volume of packages
+  boxes[0] = Carton(12, 41, 52);
 
-  //cout << "The Volume of the box is: " << boxes[3].Calculate_Volume() << endl;
-  // print out the girth of packages
+  //Read data from file
+  string message;
+  int record_size = 0;
 
-  // print out the length plus girth of packages
+  message = ReadDataFormatFromFile("../carton_data.txt", boxes, record_size);
+  cout << "\nMessage: " << message << "\nrecords loaded: " << record_size << endl;
 
-  // check if package is sized to ship
+  cout << "\nPrinting Array: " << endl;
 
-  // define a package that is too big to ship
+  for(auto box = 0; box < record_size; ++box)
+  { 
+    cout << "Box " << box + 1 << ": " << endl;
+    boxes[box].ShowInfo();
+  }
 
-  // define a package that is too small to ship
-
-  // print if sized to ship
-
-  // write carton data and information
-
-  // read data from file
-
-  // write data to file
+  WriteDataToFile("../carton_data.csv", boxes, record_size);
+  
 
   return 0;
 }
