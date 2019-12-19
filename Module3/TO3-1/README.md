@@ -1,8 +1,10 @@
 # TA03.1: Adding an overload operators to the Distance Class 
 
-### Student name:
+### Student name: 
+Geoff Prothero
 
 ### Github account:
+GeoProth
 ---
 In the following activity, we will add to the `Distance` class a few features like some extra "getters" and some operator overloads.
 

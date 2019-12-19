@@ -1,4 +1,6 @@
+#include <iostream>
 #pragma once
+
 
 class Distance
 {
@@ -8,7 +10,7 @@ class Distance
 
     public:
         Distance(){feet_ = 0; inches_ = 0;}
-        ~Distance(){std::cout << "Bye!" << std::endl;}
+        ~Distance(){}
         Distance(int ft, float inch) : feet_(ft), inches_(inch){}
 
         // Getter & Setters
@@ -20,5 +22,15 @@ class Distance
 
         // Other methods
         void ShowDist() const {std::cout << Feet()<< "'-" << Inches() << "\"" << std::endl;}
+
+        // Operations
+        Distance operator +(Distance d2) const;
+        
+        friend std::ostream &operator<<(std::ostream &os, const Distance &dist)
+        {
+            os << dist.feet_ << "'-" << dist.inches_ << "\"";
+            return os;
+        }
+      
 
 };
