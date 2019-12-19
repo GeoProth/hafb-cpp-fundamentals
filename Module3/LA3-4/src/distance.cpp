@@ -52,3 +52,18 @@ bool Distance::operator<(Distance dist) const
 {
     return feet_ < dist.feet_ ? true : inches_ < dist.inches_;
 }
+
+Distance Distance::operator =(Distance& rhs)
+{
+    std::cout << "Assignment operator invoked!" << std::endl;
+    feet_ = rhs.feet_;
+    inches_ = rhs.inches_;
+    return Distance(feet_, inches_);
+}
+
+Distance::Distance(const Distance& dist)
+{
+    std::cout<< "Copy constructor invoked" << std::endl;
+    feet_ = dist.feet_;
+    inches_ = dist.inches_;
+}

@@ -10,8 +10,9 @@ class Distance
 
     public:
         Distance(){feet_ = 0; inches_ = 0;}
-        ~Distance(){}
         Distance(int ft, float inch) : feet_(ft), inches_(inch){}
+        Distance(const Distance& dist);
+        ~Distance(){}
 
         // Getter & Setters
         int Feet() const {return feet_;}
@@ -41,6 +42,7 @@ class Distance
         bool operator==(Distance dist) const;
         //  less than operator
         bool operator<(Distance dist) const;
+        Distance operator =(Distance& rhs);
 
 
 };

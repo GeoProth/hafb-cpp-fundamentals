@@ -51,6 +51,20 @@ int main()
     cout << "d5 is Greater than to d6" << endl;
   }
 
+  // assignment operators
+  d5 = d6;
+  cout << "D5: ";
+  cout << d5 << endl;
+  cout << "D6: ";
+  cout << d6 << endl;
+
+
+  Distance d7(d3);
+  cout << "D3: ";
+  cout << d3 << endl;
+  cout << "D7: ";
+  cout << d7 << endl;
+
 
   return 0;
 }
